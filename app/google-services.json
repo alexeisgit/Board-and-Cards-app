@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "916514635487",
+    "firebase_url": "https://boards-and-cards.firebaseio.com",
+    "project_id": "boards-and-cards",
+    "storage_bucket": "boards-and-cards.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:916514635487:android:c9245b86394d0b2e55336a",
+        "android_client_info": {
+          "package_name": "com.boardscards"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "916514635487-n5mghdd7kv25fcspvco72ak2inmc9jnt.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDz5qxmsvczDLnQAO2Y8T8L3lN1jmNV_q0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "916514635487-n5mghdd7kv25fcspvco72ak2inmc9jnt.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
