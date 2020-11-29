@@ -14,23 +14,18 @@ import junit.framework.Assert.assertEquals
 @LargeTest
 @RunWith(AndroidJUnit4::class)
 
-class BoardNameTest {
+class BoardNameTest : BaseTest() {
 
     @Rule
     @JvmField
     var mActivityTestRule = ActivityTestRule(IntroActivity::class.java)
 
-    private val boardName = "ad"
+
     @Test
 
     fun verifyBoardTitle() {
-        login {
-            tapSignInUser()
-            enterCredentials()
-            sleep()
-            checkIfToolbarIsVisible()
-            sleep()
-        }
+        verifySignInSuccess()
+        sleep()
 
         boards {
             selectBoard(boardName)

@@ -20,7 +20,7 @@ fun sleep() = Thread.sleep(2000)
 
 fun boards(boardsFunction: BoardScreenRobot.() -> Unit) = BoardScreenRobot().apply(boardsFunction)
 
-class BoardScreenRobot {
+class BoardScreenRobot : BaseRobot() {
 
     private val boardsRecyclerMatcher: Matcher<View> = withId(R.id.rv_boards_list)
     private val boardTitleMatcher = withText("ad")
@@ -44,11 +44,8 @@ class BoardScreenRobot {
     fun checkNumberOfBoards(count: Int) = Espresso.onView(boardsRecyclerMatcher)
         .check(ViewAssertions.matches(recyclerElementCount(count)))
 
-    fun getBoardTitleText(): String {
-        val textReference: AtomicReference<String> = AtomicReference()
-        Espresso.onView(boardTitleMatcher).perform(getText(textReference))
-        val actualText = textReference.toString()
-        return actualText
-    }
+
+    fun getBoardTitleText(): String = getElementText(boardTitleMatcher)
+
 
 }

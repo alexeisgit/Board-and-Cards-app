@@ -14,7 +14,7 @@ import java.lang.Thread.sleep
 @LargeTest
 @RunWith(AndroidJUnit4::class)
 
-class BoardsNumberTest {
+class BoardsNumberTest : BaseTest() {
 
     fun sleep() = sleep(4000)
 
@@ -22,8 +22,6 @@ class BoardsNumberTest {
     @JvmField
     var mActivityTestRule = ActivityTestRule(IntroActivity::class.java)
 
-    private val numberOfBoards = 2
-    private val boardName = "ad"
 
     @Test
 
