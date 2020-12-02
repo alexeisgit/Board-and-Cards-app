@@ -1,4 +1,4 @@
-package com.boardscards.activities.robots
+package com.boardscards.robots
 
 import androidx.test.espresso.Espresso
 import androidx.test.espresso.action.ViewActions
@@ -23,7 +23,7 @@ class LoginRobot {
 
 
     }
-    fun sleep() = Thread.sleep(2000)
+    fun sleep() = Thread.sleep(4000)
 
     fun enterCredentials() {
 

@@ -5,6 +5,7 @@ import android.content.Intent
 import android.net.Uri
 import android.provider.MediaStore
 import android.webkit.MimeTypeMap
+import androidx.test.espresso.idling.CountingIdlingResource
 
 object Constants {
 
@@ -85,4 +86,5 @@ object Constants {
         return MimeTypeMap.getSingleton()
             .getExtensionFromMimeType(activity.contentResolver.getType(uri!!))
     }
+    val countingIdlingResource = CountingIdlingResource("CountingIdlingResource")
 }

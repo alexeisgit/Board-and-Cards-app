@@ -134,6 +134,7 @@ class MainActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedList
      * A function to setup action bar
      */
     private fun setupActionBar() {
+        //Constants.countingIdlingResource.increment()
 
         setSupportActionBar(toolbar_main_activity)
         toolbar_main_activity.setNavigationIcon(R.drawable.ic_action_navigation_menu)
@@ -141,18 +142,21 @@ class MainActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedList
         toolbar_main_activity.setNavigationOnClickListener {
             toggleDrawer()
         }
+        //Constants.countingIdlingResource.decrement()
     }
 
     /**
      * A function for opening and closing the Navigation Drawer.
      */
     private fun toggleDrawer() {
+       // Constants.countingIdlingResource.increment()
 
         if (drawer_layout.isDrawerOpen(GravityCompat.START)) {
             drawer_layout.closeDrawer(GravityCompat.START)
         } else {
             drawer_layout.openDrawer(GravityCompat.START)
         }
+        //Constants.countingIdlingResource.decrement()
     }
 
     /**
@@ -208,6 +212,7 @@ class MainActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedList
      * A function to populate the result of BOARDS list in the UI i.e in the recyclerView.
      */
     fun populateBoardsListToUI(boardsList: ArrayList<Board>) {
+        //Constants.countingIdlingResource.increment()
 
         hideProgressDialog()
 
@@ -225,16 +230,30 @@ class MainActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedList
 
             adapter.setOnClickListener(object :
                 BoardItemsAdapter.OnClickListener {
+
                 override fun onClick(position: Int, model: Board) {
+
+
                     val intent = Intent(this@MainActivity, TaskListActivity::class.java)
                     intent.putExtra(Constants.DOCUMENT_ID, model.documentId)
                     startActivity(intent)
+
+
+
+
+
                 }
+
             })
         } else {
             rv_boards_list.visibility = View.GONE
             tv_no_boards_available.visibility = View.VISIBLE
+
+
+
         }
+       // Constants.countingIdlingResource.decrement()
+
     }
 
     /**

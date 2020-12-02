@@ -2,6 +2,7 @@ package com.boardscards.activities
 
 import android.content.Intent
 import android.os.Bundle
+import android.provider.SyncStateContract
 import android.text.TextUtils
 import android.view.WindowManager
 import android.widget.Toast
@@ -9,6 +10,7 @@ import com.google.firebase.auth.FirebaseAuth
 import com.boardscards.R
 import com.boardscards.firebase.FirestoreClass
 import com.boardscards.model.User
+import com.boardscards.utils.Constants
 import kotlinx.android.synthetic.main.activity_sign_in.*
 
 class SignInActivity : BaseActivity() {
@@ -54,6 +56,8 @@ class SignInActivity : BaseActivity() {
      * A function for Sign-In using the registered user using the email and password.
      */
     private fun signInRegisteredUser() {
+        //Constants.countingIdlingResource.increment()
+
         // Here we get the text from editText and trim the space
         val email: String = et_email.text.toString().trim { it <= ' ' }
         val password: String = et_password.text.toString().trim { it <= ' ' }
@@ -68,12 +72,15 @@ class SignInActivity : BaseActivity() {
                     if (task.isSuccessful) {
                         // Calling the FirestoreClass signInUser function to get the data of user from database.
                         FirestoreClass().loadUserData(this@SignInActivity)
+
                     } else {
                         Toast.makeText(
                             this@SignInActivity,
                             task.exception!!.message,
                             Toast.LENGTH_LONG
                         ).show()
+                        //Constants.countingIdlingResource.decrement()
+
                     }
                 }
         }
@@ -92,16 +99,25 @@ class SignInActivity : BaseActivity() {
         } else {
             true
         }
+
     }
 
     /**
      * A function to get the user details from the firestore database after authentication.
      */
     fun signInSuccess(user: User) {
+        //Constants.countingIdlingResource.increment()
+
 
         hideProgressDialog()
 
         startActivity(Intent(this@SignInActivity, MainActivity::class.java))
         this.finish()
+
+       // Constants.countingIdlingResource.decrement()
+
     }
+
+
+
 }

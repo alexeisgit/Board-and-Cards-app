@@ -1,4 +1,4 @@
-package com.boardscards.activities
+package com.boardscards.utils
 
 import android.os.IBinder
 

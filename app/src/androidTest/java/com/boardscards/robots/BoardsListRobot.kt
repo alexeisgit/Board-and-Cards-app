@@ -1,4 +1,4 @@
-package com.boardscards.activities.robots
+package com.boardscards.robots
 
 import androidx.recyclerview.widget.RecyclerView
 import androidx.test.espresso.Espresso.onView

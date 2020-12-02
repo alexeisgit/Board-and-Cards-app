@@ -48,6 +48,7 @@ class FirestoreClass {
      * A function to SignIn using firebase and get the user details from Firestore Database.
      */
     fun loadUserData(activity: Activity, readBoardsList: Boolean = false) {
+       // Constants.countingIdlingResource.increment()
 
         // Here we pass the collection name from which we wants the data.
         mFireStore.collection(Constants.USERS)
@@ -90,8 +91,10 @@ class FirestoreClass {
                     activity.javaClass.simpleName,
                     "Error while getting loggedIn user details",
                     e
+
                 )
             }
+       // Constants.countingIdlingResource.decrement()
     }
 
     /**
@@ -137,6 +140,7 @@ class FirestoreClass {
      * A function for creating a board and making an entry in the database.
      */
     fun createBoard(activity: CreateBoardActivity, board: Board) {
+       // Constants.countingIdlingResource.increment()
 
         mFireStore.collection(Constants.BOARDS)
             .document()
@@ -154,14 +158,17 @@ class FirestoreClass {
                     activity.javaClass.simpleName,
                     "Error while creating a board.",
                     e
+
                 )
             }
+        //Constants.countingIdlingResource.decrement()
     }
 
     /**
      * A function to get the list of created boards from the database.
      */
     fun getBoardsList(activity: MainActivity) {
+        //Constants.countingIdlingResource.increment()
 
         // The collection name for BOARDS
         mFireStore.collection(Constants.BOARDS)
@@ -191,12 +198,14 @@ class FirestoreClass {
                 activity.hideProgressDialog()
                 Log.e(activity.javaClass.simpleName, "Error while creating a board.", e)
             }
+        //Constants.countingIdlingResource.decrement()
     }
 
     /**
      * A function to get the Board Details.
      */
     fun getBoardDetails(activity: TaskListActivity, documentId: String) {
+       // Constants.countingIdlingResource.increment()
         mFireStore.collection(Constants.BOARDS)
             .document(documentId)
             .get()
@@ -213,6 +222,7 @@ class FirestoreClass {
                 activity.hideProgressDialog()
                 Log.e(activity.javaClass.simpleName, "Error while creating a board.", e)
             }
+        //Constants.countingIdlingResource.decrement()
     }
 
     /**
@@ -291,6 +301,7 @@ class FirestoreClass {
      * A function to get the user details from Firestore Database using the email address.
      */
     fun getMemberDetails(activity: MembersActivity, email: String) {
+
 
         // Here we pass the collection name from which we wants the data.
         mFireStore.collection(Constants.USERS)

@@ -1,4 +1,4 @@
-package com.boardscards.activities.robots
+package com.boardscards.robots
 
 import android.view.View
 import androidx.test.espresso.Espresso
@@ -10,13 +10,14 @@ import java.util.concurrent.atomic.AtomicReference
 
 open class BaseRobot {
 
-    fun sleep() = Thread.sleep(2000)
+    fun sleep() = Thread.sleep(4000)
 
     fun enterText(matcher: Matcher<View>, text: String) = Espresso.onView(matcher)
         .perform(ViewActions.typeText(text))
         .perform(ViewActions.closeSoftKeyboard())
 
     fun tapBy(matcher: Matcher<View>) = Espresso.onView(matcher).perform(ViewActions.click())
+
 
     fun getElementText(elementMatcher: Matcher<View>): String {
         val textReference: AtomicReference<String> = AtomicReference()

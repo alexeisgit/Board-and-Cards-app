@@ -216,6 +216,7 @@ class MyProfileActivity : BaseActivity() {
      * A function to update the user profile details into the database.
      */
     private fun updateUserProfileData() {
+        //Constants.countingIdlingResource.increment()
 
         val userHashMap = HashMap<String, Any>()
 
@@ -233,6 +234,8 @@ class MyProfileActivity : BaseActivity() {
 
         // Update the data in the database.
         FirestoreClass().updateUserProfileData(this@MyProfileActivity, userHashMap)
+
+        Constants.countingIdlingResource.decrement()
     }
 
     /**
