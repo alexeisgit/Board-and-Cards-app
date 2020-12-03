@@ -19,22 +19,10 @@ open class BaseTest {
             checkIfToolbarIsVisible()
         }
     }
-        fun verifyBoardExist() {
-            verifySignInSuccess()
-            sleep()
 
-            boards {
-                locateBoard(boardName)
-                //sleep()
-                Assert.assertEquals(boardName, getBoardTitleText())
-
-            }
-
-
-        }
-    val boardName = "Joe"
 
     val numberOfBoards = 3
+
     }
 
 

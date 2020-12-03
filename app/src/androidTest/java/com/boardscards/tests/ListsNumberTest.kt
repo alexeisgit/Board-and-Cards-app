@@ -1,57 +1,48 @@
 package com.boardscards.tests
 
-import androidx.test.espresso.IdlingRegistry
+
 import androidx.test.filters.LargeTest
 import androidx.test.rule.ActivityTestRule
 import androidx.test.runner.AndroidJUnit4
 import com.boardscards.activities.IntroActivity
 import com.boardscards.robots.boards
-import com.boardscards.robots.sleep
-import com.boardscards.utils.Constants
+import com.boardscards.robots.boardsList
+import com.boardscards.robots.login
 import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
-import junit.framework.Assert.assertEquals
-import org.junit.After
-import org.junit.Before
+import java.lang.Thread.sleep
 
 @LargeTest
 @RunWith(AndroidJUnit4::class)
 
-class BoardNameTest : BaseTest() {
+class ListsNumberTest : BaseTest() {
+
+    fun sleep() = sleep(4000)
 
     @Rule
     @JvmField
     var mActivityTestRule = ActivityTestRule(IntroActivity::class.java)
-    private val boardName = "Anna"
 
-//    @Before
-//    fun setup() {
-//        IdlingRegistry.getInstance().register(Constants.countingIdlingResource)
-//
-//    }
-//
-//    @After
-//    fun teardown() {
-//        IdlingRegistry.getInstance().unregister(Constants.countingIdlingResource)
-//    }
+    private val boardName = "Anna"
+    private val numberOfLists = 2
+
     @Test
 
-    fun verifyBoardTitle() {
+   fun verifyNumberOfLists() {
         verifySignInSuccess()
-        sleep()
-
 
         boards {
             selectBoard(boardName)
             sleep()
-            assertEquals(boardName, getBoardTitleText())
+        }
+        boardsList {
+            checkNumberOfLists(numberOfLists)
+        }
 
         }
 
 
+
     }
 
-
-
-}

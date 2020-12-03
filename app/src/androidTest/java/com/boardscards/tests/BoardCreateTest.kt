@@ -32,7 +32,7 @@ class BoardCreateTest : BaseTest () {
     fun teardown() {
         IdlingRegistry.getInstance().unregister(Constants.countingIdlingResource)
     }
-     private val enteredBoardName = "Joe"
+     private val enteredBoardName = "Alex"
     @Test
 
     fun verifyNewBoardCreated() {

@@ -235,7 +235,7 @@ class MyProfileActivity : BaseActivity() {
         // Update the data in the database.
         FirestoreClass().updateUserProfileData(this@MyProfileActivity, userHashMap)
 
-        Constants.countingIdlingResource.decrement()
+       // Constants.countingIdlingResource.decrement()
     }
 
     /**

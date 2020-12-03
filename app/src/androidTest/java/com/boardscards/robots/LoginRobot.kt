@@ -23,7 +23,7 @@ class LoginRobot {
 
 
     }
-    fun sleep() = Thread.sleep(4000)
+    fun sleep() = Thread.sleep(5000)
 
     fun enterCredentials() {
 
