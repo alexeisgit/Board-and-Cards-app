@@ -1,5 +1,6 @@
 package com.boardscards.tests
 
+import androidx.test.ext.junit.rules.ActivityScenarioRule
 import androidx.test.filters.LargeTest
 import androidx.test.rule.ActivityTestRule
 import androidx.test.runner.AndroidJUnit4
@@ -11,16 +12,25 @@ import com.boardscards.robots.sleep
 import org.junit.Assert.assertEquals
 import org.junit.Rule
 import org.junit.Test
+import org.junit.rules.RuleChain
 import org.junit.runner.RunWith
 
-@LargeTest
+
+//@LargeTest
 @RunWith(AndroidJUnit4::class)
 
 class RenameCardTest : BaseTest() {
 
     @Rule
     @JvmField
-    var mActivityTestRule = ActivityTestRule(IntroActivity::class.java)
+    var mActivityTestRule = ActivityScenarioRule(IntroActivity::class.java)
+
+//    @get: Rule
+//    var chain = RuleChain.outerRule(clearPreferencesRule)
+//        .around(clearDatabaseRule)
+//        .around(clearFilesRule)
+//        .around(mActivityTestRule)
+
 
     private val boardName = "Catherine"
     private val listName = "Tasks"
@@ -44,11 +54,11 @@ class RenameCardTest : BaseTest() {
         cards {
             selectCard(cardName)
             sleep()
-            renameCard(cardName,replaceText)
+            renameCard(cardName, replaceText)
             sleep()
             tapUpdateButton()
             sleep()
-            assertEquals(replaceText,getCardName())
+            assertEquals(replaceText, getCardName())
 
 
         }

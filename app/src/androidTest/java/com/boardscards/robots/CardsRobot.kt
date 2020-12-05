@@ -49,11 +49,23 @@ class CardsRobot : BaseRobot() {
 
     fun locateDateView(date: String) {
 
-        onView(Matchers.allOf(withId(R.id.tv_select_due_date), withText(date), ViewMatchers.isDisplayed()))
+        onView(
+            Matchers.allOf(
+                withId(R.id.tv_select_due_date),
+                withText(date),
+                ViewMatchers.isDisplayed()
+            )
+        )
 
 
     }
 
+//    fun clickAdd() {
+//        activity = mActivityTestRule.launchActivity(startingIntent);
+//    onView(withId(R.id.recyclerView))
+//    .perform(RecyclerViewActions.scrollToPosition(activity.recyclerView.getAdapter().getItemCount() - 1))
+//        .perform(click())
+//}
 
     fun confirmOK() {
         onView(
