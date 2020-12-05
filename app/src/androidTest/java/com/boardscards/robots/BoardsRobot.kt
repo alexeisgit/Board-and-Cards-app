@@ -17,14 +17,17 @@ import androidx.test.espresso.matcher.ViewMatchers.withText
 
 fun sleep() = Thread.sleep(2000)
 
-fun boards(boardsFunction: BoardScreenRobot.() -> Unit) = BoardScreenRobot().apply(boardsFunction)
+fun boards(boardsFunction: BoardsRobot.() -> Unit) = BoardsRobot().apply(boardsFunction)
 
-class BoardScreenRobot : BaseRobot() {
+class BoardsRobot : BaseRobot() {
 
     private val boardsRecyclerMatcher: Matcher<View> = withId(R.id.rv_boards_list)
-    private val boardTitleMatcher = withText("Anna")
+//    private val boardTitleMatcher = withText("Anna")
+   private val boardTitleMatcher = withId(R.id.toolbar_task_list_activity)
+
     private val boardNameField: Matcher<View> = withId(R.id.et_board_name)
     private val boardImage = withId(R.id.iv_board_image)
+    private val boardName = withText("Anna")
 
     fun locateBoard(name: String) {
 
@@ -68,6 +71,7 @@ class BoardScreenRobot : BaseRobot() {
     fun checkIfImageIsDisplayed() = onView(boardImage)
         .check(ViewAssertions.matches(isDisplayed()))
 
+    fun boardNameIsDisplayed() = displayed(boardName)
 
 
 }

@@ -45,7 +45,8 @@ class BoardNameTest : BaseTest() {
         boards {
             selectBoard(boardName)
             sleep()
-            assertEquals(boardName, getBoardTitleText())
+            boardNameIsDisplayed()
+//            assertEquals(boardName, getBoardTitleText())
 
         }
 

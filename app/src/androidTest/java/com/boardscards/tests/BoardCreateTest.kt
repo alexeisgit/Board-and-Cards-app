@@ -48,6 +48,7 @@ class BoardCreateTest : BaseTest () {
         boards {
             locateBoard(enteredBoardName)
         }
+
         }
 
 

@@ -24,11 +24,10 @@ class AlertMessageTest : BaseTest() {
     @JvmField
     var mActivityTestRule = ActivityTestRule(IntroActivity::class.java)
 
-// private val alertMsgTxt: String =
+
 private val boardName = "Alex"
     private val listName = "hw"
     private val deleteMessage: String = "Are you sure you want to delete hw."
-    //private val deletePromptMsg = "Are you sure you want to delete hw"
 
 
    @Test

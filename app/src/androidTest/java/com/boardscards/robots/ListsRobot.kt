@@ -20,10 +20,10 @@ import org.hamcrest.Matchers
 import org.hamcrest.Matchers.allOf
 
 
-fun boardsList(listFunction: BoardsListRobot.() -> Unit) =
-      BoardsListRobot().apply(listFunction)
+fun boardsList(listFunction: ListsRobot.() -> Unit) =
+      ListsRobot().apply(listFunction)
 
-class BoardsListRobot : BaseRobot() {
+class ListsRobot : BaseRobot() {
 
       private val listRecyclerMatcher: Matcher<View> = withId(R.id.rv_task_list)
       private val deleteBtn = withId(R.id.ib_delete_list)
@@ -46,6 +46,15 @@ class BoardsListRobot : BaseRobot() {
                         ViewMatchers.isDisplayed()
                   )
             )
+      }
+
+      fun selectCard(name: String) {
+
+            onView(allOf(withId(R.id.tv_task_list_title), withText(name), ViewMatchers.isDisplayed()))
+
+            tapBy(withText(name))
+
+
       }
 
             fun selectList(name: String) {
