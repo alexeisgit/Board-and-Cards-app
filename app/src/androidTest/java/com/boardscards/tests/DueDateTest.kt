@@ -26,7 +26,7 @@ class DueDateTest : BaseTest() {
     private val boardName = "Peter"
     private val taskName = "Tasks"
     private val cardName = "Problem1"
-    private val expectedDueDate = "07/12/2020"
+    private val expectedDueDate = "08/12/2020"
 
     @Test
 
@@ -36,11 +36,11 @@ class DueDateTest : BaseTest() {
         sleep()
         boards {
             selectBoard(boardName)
-            sleep()
+
         }
         boardsList {
             selectList(taskName)
-            sleep()
+
 
 
         }
@@ -48,10 +48,9 @@ class DueDateTest : BaseTest() {
             selectCard(cardName)
             sleep()
             tapDueDateField()
-            selectDate(7,12,2020)
+            selectDate(8,12,2020)
             confirmOK()
             tapUpdateButton()
-            sleep()
             selectCard(cardName)
             locateDateView(expectedDueDate)
             assertEquals(expectedDueDate, getDateString())

@@ -39,12 +39,10 @@ class BoardNameTest : BaseTest() {
 
     fun verifyBoardTitle() {
         verifySignInSuccess()
-        sleep()
 
 
         boards {
             selectBoard(boardName)
-            sleep()
             boardNameIsDisplayed()
 //            assertEquals(boardName, getBoardTitleText())
 

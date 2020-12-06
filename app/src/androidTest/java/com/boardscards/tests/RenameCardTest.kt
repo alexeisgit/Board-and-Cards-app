@@ -9,6 +9,7 @@ import com.boardscards.robots.boards
 import com.boardscards.robots.boardsList
 import com.boardscards.robots.cards
 import com.boardscards.robots.sleep
+import org.junit.After
 import org.junit.Assert.assertEquals
 import org.junit.Rule
 import org.junit.Test
@@ -16,7 +17,7 @@ import org.junit.rules.RuleChain
 import org.junit.runner.RunWith
 
 
-//@LargeTest
+@LargeTest
 @RunWith(AndroidJUnit4::class)
 
 class RenameCardTest : BaseTest() {
@@ -37,6 +38,20 @@ class RenameCardTest : BaseTest() {
     private val cardName = "Very Important Stuff"
     private val replaceText = "Not Very Important Stuff"
 
+    @After
+
+fun resetRenameCardTest() {
+        cards {
+            selectCard(replaceText)
+            renameCard(replaceText, cardName)
+            tapUpdateButton()
+            sleep()
+            assertEquals(cardName, getCardName())
+
+        }
+
+
+    }
 
  @Test
     fun verifyCardIsRenamed() {
@@ -45,19 +60,15 @@ class RenameCardTest : BaseTest() {
         sleep()
         boards {
             selectBoard(boardName)
-            sleep()
+
         }
         boardsList {
             selectList(listName)
-            sleep()
         }
         cards {
             selectCard(cardName)
-            sleep()
             renameCard(cardName, replaceText)
-            sleep()
             tapUpdateButton()
-            sleep()
             assertEquals(replaceText, getCardName())
 
 

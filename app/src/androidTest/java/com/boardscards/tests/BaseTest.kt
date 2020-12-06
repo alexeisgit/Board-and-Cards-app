@@ -2,11 +2,14 @@ package com.boardscards.tests
 
 
 import androidx.test.espresso.IdlingRegistry
+import androidx.test.espresso.matcher.ViewMatchers.withId
+import com.boardscards.R
 import com.boardscards.robots.boards
 import com.boardscards.robots.login
 import com.boardscards.robots.sleep
 import com.boardscards.utils.Constants
 import com.boardscards.utils.DateUtill
+import com.boardscards.utils.waitUntilViewIsDisplayed
 import com.schibsted.spain.barista.rule.cleardata.ClearDatabaseRule
 import com.schibsted.spain.barista.rule.cleardata.ClearFilesRule
 import com.schibsted.spain.barista.rule.cleardata.ClearPreferencesRule
@@ -27,7 +30,7 @@ open class BaseTest {
         login {
             tapSignInUser()
             enterCredentials()
-            sleep()
+    waitUntilViewIsDisplayed(withId(R.id.rv_boards_list))
             checkIfToolbarIsVisible()
         }
     }

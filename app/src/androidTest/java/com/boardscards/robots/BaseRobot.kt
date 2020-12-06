@@ -17,7 +17,7 @@ import java.util.concurrent.atomic.AtomicReference
 
 open class BaseRobot {
 
-    fun sleep() = Thread.sleep(2000)
+    fun sleep() = Thread.sleep(4000)
 
     fun enterText(matcher: Matcher<View>, text: String) = Espresso.onView(matcher)
         .perform(ViewActions.typeText(text))

@@ -21,16 +21,16 @@ class LoginSuccessTest : BaseTest() {
     @JvmField
     var mActivityTestRule = ActivityTestRule(IntroActivity::class.java)
 
-    @Before
-    fun setup() {
-        IdlingRegistry.getInstance().register(countingIdlingResource)
-
-    }
-
-    @After
-    fun teardown() {
-        IdlingRegistry.getInstance().unregister(countingIdlingResource)
-    }
+//    @Before
+//    fun setup() {
+//        IdlingRegistry.getInstance().register(countingIdlingResource)
+//
+//    }
+//
+//    @After
+//    fun teardown() {
+//        IdlingRegistry.getInstance().unregister(countingIdlingResource)
+//    }
 
     @Test
 

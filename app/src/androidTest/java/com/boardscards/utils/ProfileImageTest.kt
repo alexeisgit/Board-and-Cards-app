@@ -1,46 +1,37 @@
-package com.boardscards.tests
+package com.boardscards.utils
 
 import androidx.test.filters.LargeTest
-import androidx.test.internal.runner.junit4.AndroidJUnit4ClassRunner
 import androidx.test.rule.ActivityTestRule
+import androidx.test.runner.AndroidJUnit4
 import com.boardscards.activities.IntroActivity
 import com.boardscards.robots.boards
-import com.boardscards.robots.boardsList
 import com.boardscards.robots.sleep
+import com.boardscards.tests.BaseTest
 import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
 
 
 @LargeTest
-@RunWith(AndroidJUnit4ClassRunner::class)
+@RunWith(AndroidJUnit4::class)
 
-class CardColorTest : BaseTest() {
+class ProfileImageTest : BaseTest(){
 
     @Rule
     @JvmField
     var mActivityTestRule = ActivityTestRule(IntroActivity::class.java)
 
-    private val boardName = "Peter"
-    private val cardName = "Problem1"
-
+    private val enteredBoardName = "Joe"
     @Test
 
-    fun verifyCardColor() {
-
+    fun verifyProfileImageVisible () {
 
         verifySignInSuccess()
         sleep()
         boards {
-            selectBoard(boardName)
-            sleep()
+            locateBoard(enteredBoardName)
+            checkIfImageIsDisplayed()
         }
-
-boardsList {
-    selectCard(cardName)
-}
-
-
 
 
 
@@ -49,4 +40,6 @@ boardsList {
 
 
     }
+
+
 }

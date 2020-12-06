@@ -9,6 +9,7 @@ import com.boardscards.robots.boards
 import com.boardscards.robots.sleep
 import com.boardscards.utils.Constants
 import org.junit.After
+
 import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
@@ -21,18 +22,10 @@ class BoardCreateTest : BaseTest () {
     @Rule
     @JvmField
     var mActivityTestRule = ActivityTestRule(IntroActivity::class.java)
-
-    @Before
-    fun setup() {
-        IdlingRegistry.getInstance().register(Constants.countingIdlingResource)
-
-    }
-
+    private val enteredBoardName = "John"
     @After
-    fun teardown() {
-        IdlingRegistry.getInstance().unregister(Constants.countingIdlingResource)
-    }
-     private val enteredBoardName = "Alex"
+
+
     @Test
 
     fun verifyNewBoardCreated() {
@@ -47,6 +40,7 @@ class BoardCreateTest : BaseTest () {
 
         boards {
             locateBoard(enteredBoardName)
+
         }
 
         }

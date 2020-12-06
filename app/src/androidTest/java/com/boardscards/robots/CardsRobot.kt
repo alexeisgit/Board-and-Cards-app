@@ -19,6 +19,8 @@ import androidx.test.espresso.matcher.ViewMatchers.withText
 import com.boardscards.R
 import com.boardscards.utils.ChildViewAction
 import com.boardscards.utils.DateUtill
+import com.boardscards.utils.waitUntilViewIsDisplayed
+import com.schibsted.spain.barista.internal.performAction
 import org.hamcrest.Description
 import org.hamcrest.Matcher
 import org.hamcrest.Matchers
@@ -34,7 +36,10 @@ class CardsRobot : BaseRobot() {
     private val selectedMemberRecyclerView = withId(R.id.rv_selected_members_list)
     private val dueDateFieldMatcher: Matcher<View> = withId(R.id.tv_select_due_date)
     private val updateButtonMatcher: Matcher<View> = withId(R.id.btn_update_card_details)
-    private val dueDateTextMatcher: Matcher<View> = withText("07/12/2020")
+    //private val dueDateTextMatcher: Matcher<View> = withText("07/12/2020")
+    private val dueDateTextMatcher: Matcher<View> = withId(R.id.tv_select_due_date)
+
+
     private val cardNameMatcher: Matcher<View> = withId(R.id.tv_card_name)
 
 
@@ -60,6 +65,7 @@ class CardsRobot : BaseRobot() {
 
     }
 
+
 //    fun clickAdd() {
 //        activity = mActivityTestRule.launchActivity(startingIntent);
 //    onView(withId(R.id.recyclerView))
@@ -67,6 +73,13 @@ class CardsRobot : BaseRobot() {
 //        .perform(click())
 //}
 
+    fun resetTest(){
+
+
+
+
+
+    }
     fun confirmOK() {
         onView(
             anyOf(
@@ -80,8 +93,11 @@ class CardsRobot : BaseRobot() {
 
     }
 
-    fun tapUpdateButton() = tapBy(updateButtonMatcher)
+    fun tapUpdateButton() {
+        tapBy(updateButtonMatcher)
 
+        waitUntilViewIsDisplayed(ViewMatchers.withId(R.id.rv_task_list))
+    }
 
     fun renameCard(cardName: String, replaceText: String) {
 
@@ -111,6 +127,8 @@ class CardsRobot : BaseRobot() {
         )
 
         tapBy(ViewMatchers.withText(name))
+        waitUntilViewIsDisplayed(ViewMatchers.withId(R.id.et_name_card_details))
+
     }
 
     fun selectMember(email: String) {
