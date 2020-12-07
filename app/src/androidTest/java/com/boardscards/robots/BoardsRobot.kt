@@ -52,7 +52,9 @@ class BoardsRobot : BaseRobot() {
             onView(allOf(withId(R.id.tv_name), withText(name), isDisplayed()))
 
             tapBy(withText(name))
-waitUntilViewIsDisplayed(ViewMatchers.withId(R.id.rv_task_list))
+//waitUntilViewIsDisplayed(withId(R.id.rv_task_list))
+            waitUntilViewIsDisplayed(withId(R.id.toolbar_task_list_activity))
+
 
         }
 
