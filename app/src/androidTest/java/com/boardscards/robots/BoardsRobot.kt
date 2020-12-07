@@ -42,10 +42,7 @@ class BoardsRobot : BaseRobot() {
 
     }
 
-        fun locateLatestBoard() {
 
-
-        }
 
         fun selectBoard(name: String) {
 
@@ -83,4 +80,16 @@ class BoardsRobot : BaseRobot() {
         fun boardNameIsDisplayed() = displayed(boardName)
 
 
-    }
+
+       fun locateBoardCreator(creator: String, siblingName: String) {
+               onView(allOf(withId(R.id.tv_created_by), withText(creator), isDisplayed()))
+           (hasSibling(withText(siblingName)))
+
+
+           }
+
+       }
+
+
+
+
