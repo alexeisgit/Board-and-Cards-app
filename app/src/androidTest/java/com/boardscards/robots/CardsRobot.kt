@@ -36,7 +36,6 @@ class CardsRobot : BaseRobot() {
     private val selectedMemberRecyclerView = withId(R.id.rv_selected_members_list)
     private val dueDateFieldMatcher: Matcher<View> = withId(R.id.tv_select_due_date)
     private val updateButtonMatcher: Matcher<View> = withId(R.id.btn_update_card_details)
-    //private val dueDateTextMatcher: Matcher<View> = withText("07/12/2020")
     private val dueDateTextMatcher: Matcher<View> = withId(R.id.tv_select_due_date)
 
 
@@ -65,13 +64,6 @@ class CardsRobot : BaseRobot() {
 
     }
 
-
-//    fun clickAdd() {
-//        activity = mActivityTestRule.launchActivity(startingIntent);
-//    onView(withId(R.id.recyclerView))
-//    .perform(RecyclerViewActions.scrollToPosition(activity.recyclerView.getAdapter().getItemCount() - 1))
-//        .perform(click())
-//}
 
     fun resetTest(){
 
@@ -105,15 +97,9 @@ class CardsRobot : BaseRobot() {
         onView(Matchers.allOf(withId(R.id.et_name_card_details), withText(cardName)))
             .perform(replaceText(replaceText))
 
-//            , ViewMatchers.isDisplayed()))
-
 
     }
 
-
-//fun setDate() {
-//    onView(withId(R.id.datePicker)).perform(PickerActions.setDate(2020, 12, 7));
-//}
 
 
     fun selectCard(name: String) {
@@ -140,7 +126,6 @@ class CardsRobot : BaseRobot() {
             )
         )
 
-        //tapBy(ViewMatchers.withText(email))
     }
 
     fun tapDueDateField() = tapBy(dueDateFieldMatcher)
@@ -154,7 +139,6 @@ class CardsRobot : BaseRobot() {
                 RecyclerViewActions.actionOnItem<RecyclerView.ViewHolder>
                     (
                     ViewMatchers.hasDescendant(ViewMatchers.withResourceName(resourceName)),
-//                    ChildViewAction(R.id.iv_add_member,
                     ViewActions.click()
                 )
             )

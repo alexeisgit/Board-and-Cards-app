@@ -35,14 +35,6 @@ open class BaseTest {
         }
     }
 
-//    @get: Rule
-//    var clearPreferencesRule = ClearPreferencesRule()
-//
-//    @get: Rule
-//    var clearDatabaseRule = ClearDatabaseRule()
-//
-//    @get: Rule
-//    var clearFilesRule = ClearFilesRule()
 
 
     fun getExpectedReservationDate(daysToAdd: Int): String {
@@ -54,7 +46,7 @@ open class BaseTest {
     }
 
 
-    val numberOfBoards = 3
+
 
     }
 

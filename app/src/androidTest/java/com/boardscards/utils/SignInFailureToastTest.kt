@@ -1,10 +1,11 @@
-package com.boardscards.tests
+package com.boardscards.utils
 
 import androidx.test.filters.LargeTest
 import androidx.test.rule.ActivityTestRule
 import androidx.test.runner.AndroidJUnit4
 import com.boardscards.activities.IntroActivity
 import com.boardscards.robots.login
+import com.boardscards.tests.BaseTest
 import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith

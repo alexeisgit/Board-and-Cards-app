@@ -25,16 +25,7 @@ class BoardNameTest : BaseTest() {
     var mActivityTestRule = ActivityTestRule(IntroActivity::class.java)
     private val boardName = "Anna"
 
-//    @Before
-//    fun setup() {
-//        IdlingRegistry.getInstance().register(Constants.countingIdlingResource)
-//
-//    }
-//
-//    @After
-//    fun teardown() {
-//        IdlingRegistry.getInstance().unregister(Constants.countingIdlingResource)
-//    }
+
     @Test
 
     fun verifyBoardTitle() {

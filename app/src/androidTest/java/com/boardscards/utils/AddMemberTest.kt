@@ -1,4 +1,4 @@
-package com.boardscards.tests
+package com.boardscards.utils
 
 import androidx.test.espresso.matcher.ViewMatchers.withId
 import androidx.test.filters.LargeTest
@@ -10,7 +10,7 @@ import com.boardscards.robots.boards
 import com.boardscards.robots.boardsList
 import com.boardscards.robots.cards
 import com.boardscards.robots.sleep
-import kotlinx.android.synthetic.main.activity_card_details.view.*
+import com.boardscards.tests.BaseTest
 import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith

@@ -12,8 +12,6 @@ class PopUpRobot : BaseRobot() {
 private val deleteMessage = withText("Are you sure you want to delete hw.")
 
 
-    //fun deletePromptIsDisplayed(text: String) = displayed(withText(text))
-
     fun deletePromptIsDisplayed(): String = getElementText(deleteMessage)
 
 

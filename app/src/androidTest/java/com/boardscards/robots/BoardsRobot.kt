@@ -39,9 +39,7 @@ class BoardsRobot : BaseRobot() {
     fun locateBoard(name: String) {
 
         onView(allOf(withId(R.id.tv_name), withText(name), isDisplayed()))
-//        Espresso.onView(withId(R.id.rv_boards_list))
-//            .perform(actionOnItem<RecyclerView.ViewHolder>
-//                (ViewMatchers.hasDescendant(withText(name)), ViewActions.scrollTo()))
+
     }
 
         fun locateLatestBoard() {
@@ -52,15 +50,10 @@ class BoardsRobot : BaseRobot() {
         fun selectBoard(name: String) {
 
             onView(allOf(withId(R.id.tv_name), withText(name), isDisplayed()))
-//        onView(withId(R.id.rv_boards_list))
-//            .perform(actionOnItem<RecyclerView.ViewHolder>
-//                (hasDescendant(withText(name)), ViewActions.scrollTo()))
-//
-//
+
             tapBy(withText(name))
 waitUntilViewIsDisplayed(ViewMatchers.withId(R.id.rv_task_list))
-//        Espresso.onView(withText(name))
-//            .perform(ViewActions.click())
+
         }
 
         fun selectMyProfileView() {
