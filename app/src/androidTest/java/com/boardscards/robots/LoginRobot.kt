@@ -1,18 +1,12 @@
 package com.boardscards.robots
 
-import android.app.Activity
-import androidx.test.espresso.Espresso
 import androidx.test.espresso.Espresso.onView
 import androidx.test.espresso.action.ViewActions
 import androidx.test.espresso.assertion.ViewAssertions.matches
-import androidx.test.espresso.matcher.RootMatchers.withDecorView
 import androidx.test.espresso.matcher.ViewMatchers.*
-
 import com.boardscards.R
-import com.boardscards.activities.SignInActivity
 import com.boardscards.utils.waitUntilViewIsDisplayed
-import org.hamcrest.Matchers.`is`
-import org.hamcrest.Matchers.not
+
 
 
 
@@ -28,37 +22,33 @@ class LoginRobot : BaseRobot() {
 
 
     fun tapSignInUser(){
-        Espresso.onView(signInButton).perform(ViewActions.click())
+        onView(signInButton).perform(ViewActions.click())
         waitUntilViewIsDisplayed(withId(R.id.btn_sign_in))
 
     }
 
     fun signInErrToastCheck(){
 
-        Espresso.onView(signInButton).perform(ViewActions.click())
-        Espresso.onView(withId(R.id.et_email))
+        onView(signInButton).perform(ViewActions.click())
+        onView(withId(R.id.et_email))
             .perform(ViewActions.typeText(userLogin), ViewActions.closeSoftKeyboard())
-        Espresso.onView(withId(R.id.et_password))
+        onView(withId(R.id.et_password))
             .perform(ViewActions.typeText(wrongUserPassword), ViewActions.closeSoftKeyboard())
-        Espresso.onView(withId(R.id.btn_sign_in)).perform(ViewActions.click())
+        onView(withId(R.id.btn_sign_in)).perform(ViewActions.click())
 
 
 
 
     }
 
-    fun checkToast(){
-
-
-    }
 
     fun enterCredentials() {
 
-            Espresso.onView(withId(R.id.et_email))
+            onView(withId(R.id.et_email))
                 .perform(ViewActions.typeText(userLogin), ViewActions.closeSoftKeyboard())
-            Espresso.onView(withId(R.id.et_password))
+            onView(withId(R.id.et_password))
                 .perform(ViewActions.typeText(userPassword), ViewActions.closeSoftKeyboard())
-            Espresso.onView(withId(R.id.btn_sign_in)).perform(ViewActions.click())
+            onView(withId(R.id.btn_sign_in)).perform(ViewActions.click())
 
         }
       fun checkIfToolbarIsVisible() = onView(toolBarPresentMatcher)

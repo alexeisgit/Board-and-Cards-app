@@ -9,8 +9,6 @@ import com.boardscards.activities.IntroActivity
 import com.boardscards.robots.boards
 import com.boardscards.robots.boardsList
 import com.boardscards.robots.popUpMessage
-import com.boardscards.robots.sleep
-import com.boardscards.utils.waitUntilViewIsDisplayed
 import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith

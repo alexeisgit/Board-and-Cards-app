@@ -52,7 +52,6 @@ class ListCreateTest : BaseTest() {
             createdListDisplayed(createdListName)
 
 
-
         }
 
     }

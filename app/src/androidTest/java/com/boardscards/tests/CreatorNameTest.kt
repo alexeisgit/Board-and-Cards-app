@@ -31,7 +31,6 @@ class CreatorNameTest : BaseTest() {
         boards {
             locateBoardCreator(boardCreatorString,boardName)
 
-
         }
     }
 }

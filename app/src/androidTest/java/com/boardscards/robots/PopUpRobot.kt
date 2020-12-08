@@ -1,9 +1,8 @@
 package com.boardscards.robots
 
-import androidx.test.espresso.matcher.ViewMatchers
-import androidx.test.espresso.matcher.ViewMatchers.withId
+
 import androidx.test.espresso.matcher.ViewMatchers.withText
-import com.boardscards.R
+
 
 
 fun popUpMessage(popUpFunction: PopUpRobot.() -> Unit) = PopUpRobot().apply { popUpFunction() }

@@ -7,7 +7,6 @@ import com.boardscards.activities.IntroActivity
 import com.boardscards.robots.boards
 import com.boardscards.robots.boardsList
 import com.boardscards.robots.cards
-import com.boardscards.robots.sleep
 import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
@@ -33,7 +32,7 @@ class DueDateTest : BaseTest() {
     fun verifySetDueDate() {
 
         verifySignInSuccess()
-        sleep()
+
         boards {
             selectBoard(boardName)
 
@@ -46,7 +45,6 @@ class DueDateTest : BaseTest() {
         }
         cards {
             selectCard(cardName)
-            sleep()
             tapDueDateField()
             selectDate(8,12,2020)
             confirmOK()

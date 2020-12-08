@@ -7,9 +7,7 @@ import androidx.test.espresso.Root
 import org.hamcrest.Description
 import org.hamcrest.TypeSafeMatcher
 
-/**
- * Author: http://www.qaautomated.com/2016/01/how-to-test-toast-message-using-espresso.html
- */
+
 class ToastMatcher : TypeSafeMatcher<Root?>() {
 
     override fun describeTo(description: Description?) {
