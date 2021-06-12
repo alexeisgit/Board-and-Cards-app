@@ -1,8 +1,8 @@
 package com.boardscards.tests
 
+import androidx.test.ext.junit.rules.ActivityScenarioRule
 import androidx.test.filters.LargeTest
-import androidx.test.rule.ActivityTestRule
-import androidx.test.runner.AndroidJUnit4
+import androidx.test.internal.runner.junit4.AndroidJUnit4ClassRunner
 import com.boardscards.activities.IntroActivity
 import com.boardscards.robots.boards
 import com.boardscards.robots.boardsList
@@ -12,15 +12,13 @@ import org.junit.Test
 import org.junit.runner.RunWith
 import junit.framework.Assert.assertEquals
 
-
 @LargeTest
-@RunWith(AndroidJUnit4::class)
-
+@RunWith(AndroidJUnit4ClassRunner::class)
 class DueDateTest : BaseTest() {
 
     @Rule
     @JvmField
-    var mActivityTestRule = ActivityTestRule(IntroActivity::class.java)
+    var mActivityTestRule = ActivityScenarioRule(IntroActivity::class.java)
 
     private val boardName = "Peter"
     private val taskName = "Tasks"
@@ -28,21 +26,16 @@ class DueDateTest : BaseTest() {
     private val expectedDueDate = "08/12/2020"
 
     @Test
-
     fun verifySetDueDate() {
-
         verifySignInSuccess()
-
         boards {
             selectBoard(boardName)
-
         }
+
         boardsList {
             selectList(taskName)
-
-
-
         }
+
         cards {
             selectCard(cardName)
             tapDueDateField()
@@ -52,9 +45,6 @@ class DueDateTest : BaseTest() {
             selectCard(cardName)
             locateDateView(expectedDueDate)
             assertEquals(expectedDueDate, getDateString())
-
-
-
         }
     }
 }

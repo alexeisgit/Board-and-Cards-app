@@ -17,20 +17,16 @@ import java.util.concurrent.atomic.AtomicReference
 
 open class BaseRobot {
 
-
     fun enterText(matcher: Matcher<View>, text: String) = Espresso.onView(matcher)
         .perform(ViewActions.typeText(text))
         .perform(ViewActions.closeSoftKeyboard())
 
     fun tapBy(matcher: Matcher<View>) = Espresso.onView(matcher).perform(ViewActions.click())
 
-
     fun getElementText(elementMatcher: Matcher<View>): String {
         val textReference: AtomicReference<String> = AtomicReference()
         Espresso.onView(elementMatcher).perform(getText(textReference))
         return textReference.toString()
-
-
     }
 
     fun displayed(matcher: Matcher<View>) = Espresso.onView(matcher)
@@ -45,15 +41,11 @@ open class BaseRobot {
         Espresso.onView(elementMatcher).perform(getItemCount(itemCount))
         return itemCount.toString().toInt()
 
-
     }
 
     fun scrollToLastItemOfRecyclerView(recylerViewMatcher: Matcher<View>) =
         Espresso.onView(recylerViewMatcher)
             .perform(RecyclerViewActions.scrollToPosition<RecyclerView.ViewHolder>
     (getRecyclerViewItemsCount(recylerViewMatcher) - 1))
-
-
-
 
 }
